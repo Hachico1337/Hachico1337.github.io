@@ -1,0 +1,76 @@
+
+.input-login:hover, .input-password:hover{
+
+    background-color: #fd71f9e3;
+    color:white;
+   
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.label-login, .label-password{
+    display:block;
+    color:white;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+
+
+.input-login, .input-password{
+    outline-style: none;
+    box-sizing: border-box;
+    width:100%;
+    padding:12px;
+    border-radius:5px;
+    color:white;
+    background-color: rgba(30,30,30, 0.2);
+    border: solid 2px rgb(40,40,40, 0.3);
+   
+}
+
+.checkbox-label{
+    color:white;
+}
+.btn:hover{
+    background-color:#fd71f9e3;
+    border: solid 2px white;
+
+}
+.container{
+    box-sizing:border-box;
+    width:500px;
+    padding:30px;
+    position:absolute;
+    top: calc(50% - 164px);
+    left: calc(50% - 255px);
+    border:solid 5px white;
+    border-radius:10px;
+    background: rgb(76, 76, 76);
+    font-family:Tahoma;
+}
+.btn{
+    box-sizing: border-box;
+    width:100%;
+    height: 45px;
+    border-radius:5px;
+    background-color:rgb(70,70,70, 0.5);
+    border: solid 2px white;
+    color:white;
+    font-size:20px;
+
+}
+
+html{
+    position: relative;
+    height:100vh;
+    background-image: url('images//mountains.jpg');
+    background-size: cover;
+}
+
+
+
+
+
