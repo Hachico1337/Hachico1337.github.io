@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,300;1,500;1,700;1,900&display=swap');
+
 header {
     display: flex;
     justify-content: space-around;
@@ -74,6 +76,11 @@ header {
 
 
 
+
+body {
+    background: #1c1c1c;
+    font-family: 'Roboto', sans-serif;
+}
 
 @media(max-width:800px){
     .block-main {
