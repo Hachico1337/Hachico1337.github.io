@@ -1,0 +1,11 @@
+body, html {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+@media(max-width:768px) {
+    .link {
+        font-size: medium !important;
+    }
+}
