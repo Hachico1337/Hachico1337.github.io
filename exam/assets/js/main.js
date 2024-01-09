@@ -164,7 +164,7 @@ let languages = [];
 function loadGuide(routeId) {
    const API_KEY = '37a978a6-aa8e-4e4b-b8a8-a104ca96e237';
    const tableBody = document.querySelector('.guides tbody');
-   const routesGuide = 5
+   tableBody.innerHTML = '';
 
     fetch(`http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/routes/${routeId}/guides?api_key=${API_KEY}`)
     .then(response => {
