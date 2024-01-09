@@ -144,9 +144,10 @@ function updatePagination() {
 
 const paginationItems = document.querySelectorAll('.page-item');
 paginationItems.forEach((item, index) => {
+   if (index === 0 || index > totalPages) return;
    item.addEventListener('click', (event) => {
        event.preventDefault();
-       currentPage = index + 1;
+       currentPage = index;
        loadRoutes(currentPage);
        updatePagination();
    });
