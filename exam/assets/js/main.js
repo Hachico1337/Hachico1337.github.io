@@ -265,5 +265,3 @@ function loadGuide(routeId) {
        console.error('Проблема в' + e.message);
    });
 }
-
-loadGuide(currentPage);
