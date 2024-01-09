@@ -114,33 +114,6 @@ function updatePagination() {
         }
     });
  }
- 
- (event) => {
-    event.preventDefault();['Previous', 'Next'].forEach(direction => {
-       document.querySelector(`.page-link[aria-label="${direction}"]`).addEventListener('click', (event) => {
-           event.preventDefault();
-           if (direction === 'Previous' && currentPage > 1) {
-               currentPage--;
-           } else if (direction === 'Next') {
-               currentPage++;
-           }
-           loadRoutes(currentPage);
-           updatePagination();
-       });
-    });
-    if (currentPage > 1) {
-        currentPage--;
-        loadRoutes(currentPage);
-        updatePagination();
-    }
- }
- 
- document.querySelector('.page-link[aria-label="Next"]').addEventListener('click', (event) => {
-    event.preventDefault();
-    currentPage++;
-    loadRoutes(currentPage);
-    updatePagination();
- });
 
 const paginationItems = document.querySelectorAll('.page-item');
 paginationItems.forEach((item, index) => {
