@@ -1,0 +1,22 @@
+/* header */
+
+@media screen and (max-width: 768px) {
+    .header .nav {
+        flex-direction: column;
+    }
+    .header .nav .d-flex {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .header {
+        background-image: url(../img/logo.png);
+        background-size: cover;
+        background-repeat:no-repeat;
+        background-position: center center;
+    }
+
+    .info > p {
+        font-size: small;
+    }
+}
