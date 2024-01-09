@@ -151,7 +151,6 @@ paginationItems.forEach((item, index) => {
        updatePagination();
    });
 });
- currentPage = 1;
  loadRoutes(currentPage);
  updatePagination();
 
