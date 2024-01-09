@@ -59,9 +59,6 @@ function loadRoutes(page) {
             button.classList.add('btn', 'btn-success');
             button.textContent = 'Выбрать';
             button.addEventListener('click', function() {
-              alert("ошибка выбора гида");
-           });
-            button.addEventListener('click', function() {
                 loadGuide(route.id); 
             });
             buttonCell.appendChild(button);
@@ -210,7 +207,10 @@ function loadGuide(routeId) {
            const buttonCell = document.createElement('td');
            const button = document.createElement('button');
            button.classList.add('btn', 'btn-success');
-           button.textContent = 'Выбрать';
+           button.textContent = 'Выбрать';     
+           button.addEventListener('click', function() {
+              alert("ошибка выбора гида");
+           });
            buttonCell.appendChild(button);
            row.appendChild(buttonCell);
 
