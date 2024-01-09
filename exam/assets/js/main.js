@@ -59,6 +59,9 @@ function loadRoutes(page) {
             button.classList.add('btn', 'btn-success');
             button.textContent = 'Выбрать';
             button.addEventListener('click', function() {
+              alert("ошибка выбора гида");
+           });
+            button.addEventListener('click', function() {
                 loadGuide(route.id); 
             });
             buttonCell.appendChild(button);
