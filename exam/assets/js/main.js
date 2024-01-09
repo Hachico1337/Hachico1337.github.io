@@ -93,7 +93,19 @@ function displayRoutes(page) {
    updatePagination();
 }
 
+document.querySelector('.page-link[aria-label="Previous"]').addEventListener('click', (event) => {
+   event.preventDefault();
+   if (currentPage > 1) {
+       currentPage--;
+       loadRoutes(currentPage);
+   }
+});
 
+document.querySelector('.page-link[aria-label="Next"]').addEventListener('click', (event) => {
+   event.preventDefault();
+   currentPage++;
+   loadRoutes(currentPage);
+});
 
 loadRoutes(currentPage);
 
@@ -126,6 +138,22 @@ function resetFilters() {
     applyFilters();
 }
  
+ document.querySelector('.page-link[aria-label="Previous"]').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (currentPage > 1) {
+        currentPage--;
+        resetFilters();
+        loadRoutes(currentPage);
+    }
+ });
+ 
+ document.querySelector('.page-link[aria-label="Next"]').addEventListener('click', (event) => {
+    event.preventDefault();
+    currentPage++;
+    resetFilters();
+    loadRoutes(currentPage);
+ });
+
 loadRoutes(currentPage);
 
 function updatePagination() {
@@ -145,6 +173,25 @@ function updatePagination() {
     });
 }
   
+  // Обработчик событий для кнопки "Previous"
+  document.querySelector('.page-link[aria-label="Previous"]').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (currentPage > 1) {
+      currentPage--;
+      loadRoutes(currentPage);
+      updatePagination();
+    }
+  });
+  
+  // Обработчик событий для кнопки "Next"
+  document.querySelector('.page-link[aria-label="Next"]').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (currentPage < totalPages) {
+      currentPage++;
+      loadRoutes(currentPage);
+      updatePagination();
+    }
+  });
   
   // Обработчики событий для конкретных страниц пагинации
   const paginationItems = document.querySelectorAll('.page-item');
