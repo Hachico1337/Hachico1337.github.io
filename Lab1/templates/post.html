@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>Автор: {{ post.author }}</p>
+    <p>Дата публикации: {{ post.date.strftime('%d.%m.%Y %H:%M') }}</p>
+    <img src="{{ url_for('static', filename='images/' + post.image_id) }}" alt="Изображение поста">
+    <p>{{ post.text }}</p>
+
+    <h2>Оставьте комментарий</h2>
+    <form action="/comments" method="post">
+        <textarea name="comment" rows="4" cols="50"></textarea>
+        <br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <h2>Комментарии</h2>
+    <div class="comments-container">
+    </div>
+{% for comment in post.comments %}
+    <div class="comment">
+        <p><strong>{{ comment.author }}:</strong> {{ comment.text }}</p>
+        {% if comment.replies %}
+            <div class="reply">
+                {% for reply in comment.replies %}
+                    <p><strong>{{ reply.author }}:</strong> {{ reply.text }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}
+    
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        const commentsContainer = document.querySelector('.comments-container');
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const commentText = form.querySelector('textarea').value;
+            const commentAuthor = 'Ваш комментарий';
+            const commentDate = new Date().toLocaleString();
+    
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            commentDiv.innerHTML = `
+                <p><strong>${commentAuthor}:</strong> ${commentText}</p>
+                <button class="reply-btn">Ответить на комментарий</button>
+                <div class="replies-container"></div>
+            `;
+            commentsContainer.appendChild(commentDiv);
+    
+            const replyBtn = commentDiv.querySelector('.reply-btn');
+            replyBtn.addEventListener('click', function() {
+                const replyInput = document.createElement('input');
+                replyInput.type = 'text';
+                replyInput.placeholder = 'Введите ваш ответ здесь';
+                replyInput.style.marginTop = '10px';
+                replyInput.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        const replyText = replyInput.value;
+                        if (replyText) {
+                            const replyDiv = document.createElement('div');
+                            replyDiv.className = 'reply';
+                            replyDiv.innerHTML = `<p><strong>Ваш ответ:</strong> ${replyText}</p>`;
+                            commentDiv.querySelector('.replies-container').appendChild(replyDiv);
+                        }
+                        replyInput.remove();
+                    }
+                });
+                commentDiv.querySelector('.replies-container').appendChild(replyInput);
+                replyInput.focus();
+            });
+    
+            form.reset();
+        });
+    });
+    </script>
+</body>
+</html>
